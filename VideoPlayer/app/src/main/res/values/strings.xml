@@ -1,0 +1,37 @@
+<resources>
+    <string name="app_name">VideoPlayer</string>
+    <string name="Text_1">Media Player</string>
+    <string name="Text_2">Please allow the app to access the device storage to play your files</string>
+    <string name="allow_access_button">Allow Access</string>
+    <string name="folder_name_title">Folder Name</string>
+    <string name="folder_path">Folder Path</string>
+    <string name="no_of_files_default">2 Files</string>
+    <string name="rateus">Rate Us!</string>
+    <string name="refresh">Refresh</string>
+    <string name="share_app">Share App</string>
+    <string name="time_text">04:12</string>
+    <string name="media_file_name">Media File Name</string>
+    <string name="size">4MB</string>
+    <string name="this_is_title_of_video">this is title of video</string>
+    <string name="_5555">5555</string>
+    <string name="_4444">4444</string>
+    <string name="properties">Properties</string>
+    <string name="delete">Delete</string>
+    <string name="share">Share</string>
+    <string name="rename">Rename</string>
+    <string name="play_video">Play</string>
+    <string name="what_do_you_want">What do you want!</string>
+    <string name="search">Search</string>
+    <string name="refresh_menuItem">Refresh</string>
+    <string name="sort_by">Sort By</string>
+    <string name="background_icon">Background Icon</string>
+    <string name="volume">Volume</string>
+    <string name="brightness">Brightness</string>
+    <string name="folder_name">Folder Name</string>
+    <string name="share_file">Share</string>
+    <string name="channel_name">Channel-Name</string>
+    <string name="channel_description">Channel_description</string>
+    <string name="pause">pause</string>
+    <string name="play">play</string>
+    <string name="restart">restart</string>
+</resources>
