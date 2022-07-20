@@ -32,6 +32,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.compose.ui.window.DialogProperties;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 import androidx.core.view.WindowInsetsControllerCompat;
@@ -54,6 +55,7 @@ import com.google.android.exoplayer2.source.ProgressiveMediaSource;
 import com.google.android.exoplayer2.ui.AspectRatioFrameLayout;
 import com.google.android.exoplayer2.ui.PlayerView;
 import com.google.android.exoplayer2.upstream.DefaultDataSource;
+import
 
 import java.io.File;
 import java.util.ArrayList;
@@ -106,27 +108,27 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                 }
             });
     //For FilePicker
-//    DialogProperties dialogProperties;
-//    FilePickerDialog filePickerDialog;
+    DialogProperties dialogProperties;
+    FilePickerDialog filePickerDialog;
 
-//    private final ActivityResultLauncher<String> fileChooserIntentLauncher=registerForActivityResult
-//            (new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
-//
-//                /**
-//                 * Called when result is available
-//                 *
-//                 * @param result
-//                 */
-//                @Override
-//                public void onActivityResult(ActivityResult result) {
-//                    assert result.getData() != null;
-//
-//                    subtitleUri=result.getData().getData();
-//                    Log.i(TAG+"###","result.getData().getData() for file chooser: "+subtitleUri);
-//                    //Cursor cursor=getContentResolver().query(subtitleUri,null,null,null,null);
-//
-//                }
-//            });
+    private final ActivityResultLauncher<String> fileChooserIntentLauncher=registerForActivityResult
+            (new ActivityResultContracts.StartActivityForResult(), new ActivityResultCallback<ActivityResult>() {
+
+                /**
+                 * Called when result is available
+                 *
+                 * @param result
+                 */
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    assert result.getData() != null;
+
+                    subtitleUri=result.getData().getData();
+                    Log.i(TAG+"###","result.getData().getData() for file chooser: "+subtitleUri);
+                    //Cursor cursor=getContentResolver().query(subtitleUri,null,null,null,null);
+
+                }
+            });
 
     Uri subtitleUri;
     PictureInPictureParams.Builder pictureInPicture;
@@ -206,9 +208,10 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
         unlock.setOnClickListener(this);
         scaling.setOnClickListener(firstListener);
 
-//        dialogProperties=new DialogProperties();
-//        filePickerDialog=new FilePickerDialog(VideoPlayerActivity.this);
-//        filePickerDialog.setTitle("Select a Subtitle File");
+        dialogProperties=
+                new DialogProperties();
+        filePickerDialog=new FilePickerDialog(VideoPlayerActivity.this);
+        filePickerDialog.setTitle("Select a Subtitle File");
 
 
         /*
@@ -274,11 +277,11 @@ public class VideoPlayerActivity extends AppCompatActivity implements View.OnCli
                     }
 
                 } else if (position == 3) {
-                    //Equalizer
-//                    if(eqContainer.getVisibility()==View.GONE) {
-//                        eqContainer.setVisibility(View.VISIBLE);
-//                    }
-//                    final int sessionID=player.getAudioSessionId();
+//                    Equalizer
+                    if(eqContainer.getVisibility()==View.GONE) {
+                        eqContainer.setVisibility(View.VISIBLE);
+                    }
+                    final int sessionID=player.getAudioSessionId();
 
 
                     //For built-in equalizer

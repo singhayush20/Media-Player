@@ -39,8 +39,8 @@ dependencies {
     implementation 'com.google.android.exoplayer:extension-mediasession:2.17.1'
 
     implementation 'com.google.firebase:firebase-firestore:24.1.1'
-//    //FilePicker dependency
-//    implementation 'com.github.TutorialsAndroid:FilePicker:v8.0.19'
+    //FilePicker dependency
+    implementation 'com.github.TutorialsAndroid:FilePicker:v8.0.19'
     //AndroidEqualizer
     //https://github.com/bullheadandplato/AndroidEqualizer
 //    implementation 'com.github.bullheadandplato:AndroidEqualizer:2.2'
