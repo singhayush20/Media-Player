@@ -87,7 +87,6 @@ public class MediaFilesAdapter extends RecyclerView.Adapter<MediaFilesAdapter.Vi
             layoutParams.addRule(RelativeLayout.CENTER_VERTICAL,RelativeLayout.TRUE);
             holder.thumbnail_card.setLayoutParams(layoutParams);
 
-//            holder.thumbnail_card.setLayoutParams(new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT, RelativeLayout.LayoutParams.WRAP_CONTENT));
         }
         if(viewType==0)
         {
@@ -130,20 +129,7 @@ public class MediaFilesAdapter extends RecyclerView.Adapter<MediaFilesAdapter.Vi
                                         return;
                                     }
                                     String onlyPath = file.getParentFile().getAbsolutePath();
-//                                    Uri contentUri=null;
-//                                    if(mediaType.equals(MEDIA_TYPE_VIDEO))
-//                                        contentUri= ContentUris.withAppendedId(MediaStore.Video.Media.EXTERNAL_CONTENT_URI,
-//                                                Long.parseLong(mediaList.get(holder.getAbsoluteAdapterPosition()).getId()));
-//                                    else if(mediaType.equals(MEDIA_TYPE_AUDIO))
-//                                        contentUri=ContentUris.withAppendedId(MediaStore.Audio.Media.EXTERNAL_CONTENT_URI,
-//                                                Long.parseLong(mediaList.get(holder.getAbsoluteAdapterPosition()).getId()));
-//                                    else
-//                                        Toast.makeText(context.getApplicationContext(), "wrong media type!",Toast.LENGTH_SHORT).show();
-//                                    if(contentUri!=null)
-//                                    {
-//                                        context.getContentResolver().update(contentUri,)
 //
-//                                    }
                                     //Log.i(TAG + " ###", "Original Path: " + onlyPath);
                                     String ext = file.getAbsolutePath();
                                     //Log.i(TAG + " ###", "ext: file.getAbsolutePath(): " + ext);

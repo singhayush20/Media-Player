@@ -73,9 +73,6 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
     String listTitle;
     PlayerNotificationManager.Builder playerNotificationManagerBuilder;
      public static PlayerNotificationManager playerNotificationManager;
-//    private static MediaSessionCompat mMediaSession;
-//    private PlaybackStateCompat.Builder mStateBuilder;
-//    private NotificationManager mNotificationManager;
 
 
     @SuppressLint("NotifyDataSetChanged")
@@ -138,46 +135,12 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
             }
         });
         playerNotificationManager = playerNotificationManagerBuilder.build();
-        // Initialize the Media Session.
-        //initializeMediaSession();
+
 
         playAudio();
 
     }
-    /**
-     * Initializes the Media Session to be enabled with media buttons, transport controls, callbacks
-     * and media controller.
-     */
-//    private void initializeMediaSession() {
-//
-//        // Create a MediaSessionCompat.
-//        mMediaSession = new MediaSessionCompat(this, TAG);
-//
-//        // Enable callbacks from MediaButtons and TransportControls.
-//        mMediaSession.setFlags(
-//                MediaSessionCompat.FLAG_HANDLES_MEDIA_BUTTONS |
-//                        MediaSessionCompat.FLAG_HANDLES_TRANSPORT_CONTROLS);
-//        // Do not let MediaButtons restart the player when the app is not visible.
-//        mMediaSession.setMediaButtonReceiver(null);
-//
-//        // Set an initial PlaybackState with ACTION_PLAY, so media buttons can start the player.
-//        mStateBuilder = new PlaybackStateCompat.Builder()
-//                .setActions(
-//                        PlaybackStateCompat.ACTION_PLAY |
-//                                PlaybackStateCompat.ACTION_PAUSE |
-//                                PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS |
-//                                PlaybackStateCompat.ACTION_PLAY_PAUSE);
-//
-//        mMediaSession.setPlaybackState(mStateBuilder.build());
-//
-//
-//        // MySessionCallback has methods that handle callbacks from a media controller.
-//        mMediaSession.setCallback(new MySessionCallback());
-//
-//        // Start the Media Session since the activity is active.
-//        mMediaSession.setActive(true);
-//
-//    }
+
 
     private void createNotificationChannel() {
         // Create the NotificationChannel, but only on API 26+ because
@@ -195,70 +158,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
             notificationManager.createNotificationChannel(channel);
         }
     }
-//    // TODO (1): Create a method that shows a MediaStyle notification with two actions (play/pause, skip to previous). Clicking on the notification should launch this activity. It should take one argument that defines the state of MediaSession.
-//    /**
-//     * Shows Media Style notification, with an action that depends on the current MediaSession
-//     * PlaybackState.
-//     * @param state The PlaybackState of the MediaSession.
-//     */
-//    private void showNotification(PlaybackStateCompat state) {
-//        Log.i(TAG+"###","entered showNotification()");
-//        NotificationCompat.Builder builder= new NotificationCompat.Builder(this,CHANNEL_ID);
-//
-//        int icon;
-//        String play_pause;
-//        if(state.getState() == PlaybackStateCompat.STATE_PLAYING){
-//            icon = R.drawable.ic_pause;
-//            play_pause = getString(R.string.pause);
-//        } else {
-//            icon = R.drawable.ic_play;
-//            play_pause = getString(R.string.play);
-//        }
-//
-//
-//        NotificationCompat.Action playPauseAction = new NotificationCompat.Action(
-//                icon, play_pause,
-//                MediaButtonReceiver.buildMediaButtonPendingIntent(this,
-//                        PlaybackStateCompat.ACTION_PLAY_PAUSE));
-//
-//        NotificationCompat.Action restartAction = new NotificationCompat
-//                .Action(R.drawable.ic_previous, getString(R.string.restart),
-//                MediaButtonReceiver.buildMediaButtonPendingIntent
-//                        (this, PlaybackStateCompat.ACTION_SKIP_TO_PREVIOUS));
-//
-//        PendingIntent contentPendingIntent = PendingIntent.getActivity
-//                (this, 0, new Intent(this, AudioPlayerActivity.class), PendingIntent.FLAG_UPDATE_CURRENT|PendingIntent.FLAG_IMMUTABLE);
-//
-//        builder.setContentTitle(audioTitle)
-//                .setContentText("Description")
-//                .setContentIntent(contentPendingIntent)
-//                .setSmallIcon(R.drawable.ic_sharp_music_note_24)
-//                .setVisibility(NotificationCompat.VISIBILITY_PUBLIC)
-//                .addAction(restartAction)
-//                .addAction(playPauseAction)
-//                .setAutoCancel(true)
-//                .setStyle(new androidx.media.app.NotificationCompat.MediaStyle()
-//                        .setMediaSession(mMediaSession.getSessionToken())
-//                        .setShowActionsInCompactView(0,1))
-//                .setChannelId(CHANNEL_ID);
-//
-//            CharSequence name = getString(R.string.channel_name);
-//            String description = getString(R.string.channel_description);
-//            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-//            NotificationChannel channel = new NotificationChannel(CHANNEL_ID, name, importance);
-//            channel.setDescription(description);
-//            // Register the channel with the system; you can't change the importance
-//            // or other notification behaviors after this
-//           // mNotificationManager=getSystemService(NotificationManager.class);
-//            //mNotificationManager.createNotificationChannel(channel);
-//
-//
-//        mNotificationManager = (NotificationManager) getSystemService(NOTIFICATION_SERVICE);
-//        mNotificationManager.createNotificationChannel(channel);
-//
-//        Log.i(TAG+" ###","calling notifiy: notificationId"+NOTIFICATION_ID+" CHANNEL ID: "+CHANNEL_ID);
-//        mNotificationManager.notify(NOTIFICATION_ID, builder.build());
-//    }
+
 
     private void setFullScreen() {
         requestWindowFeature(Window.FEATURE_NO_TITLE);
@@ -346,24 +246,14 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
     @Override
     public void onBackPressed() {
         super.onBackPressed();
-//        if (player.isPlaying()) {
-//            player.stop();//stop if back button is pressed
-//
-//        }
+
     }
 
     @Override
     protected void onDestroy() {
         Log.i(TAG+" ###","onDestroy called");
         playerNotificationManager.setPlayer(null);
-        //releasePlayer();
-        //mMediaSession.setActive(false);
 
-//        if (playerNotificationManager != null) {
-//            playerNotificationManager.setPlayer(null);
-//            Log.i(TAG+" ###","playerNotificationManager if");
-//
-//        }
 
 
         if (player != null) {
@@ -378,23 +268,9 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
     @Override
     protected void onPause() {
         super.onPause();
-//        if (player != null) {
-//            player.setPlayWhenReady(false);
-//            player.getPlaybackState();
-//
-//        }
+
     }
-//    void releasePlayer()//added in course
-//    {
-//        mNotificationManager.cancelAll();
-//
-//        if (player != null) {
-//            player.stop();
-//            player.release();
-//            player = null;
-//
-//        }
-//    }
+
 
     @Override
     protected void onResume() {
@@ -487,25 +363,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
                 break;
         }
     }
-//    /**
-//     * Media Session Callbacks, where all external clients control the player.
-//     */
-//    private class MySessionCallback extends MediaSessionCompat.Callback {
-//        @Override
-//        public void onPlay() {
-//            player.setPlayWhenReady(true);
-//        }
-//
-//        @Override
-//        public void onPause() {
-//            player.setPlayWhenReady(false);
-//        }
-//
-//        @Override
-//        public void onSkipToPrevious() {
-//            player.seekTo(0);
-//        }
-//    }
+
 
     private class DescriptionAdapter implements PlayerNotificationManager.MediaDescriptionAdapter {
 
@@ -533,19 +391,7 @@ public class AudioPlayerActivity extends AppCompatActivity implements View.OnCli
             return null;
         }
     }
-//    /**
-//     * Broadcast Receiver registered to receive the MEDIA_BUTTON intent coming from clients.
-//     */
-//    public static class MediaReceiver extends BroadcastReceiver {
-//
-//        public MediaReceiver() {
-//        }
-//
-//        @Override
-//        public void onReceive(Context context, Intent intent) {
-//            MediaButtonReceiver.handleIntent(mMediaSession, intent);
-//        }
-//    }
+
 
 
 }
